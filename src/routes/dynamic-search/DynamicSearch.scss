@@ -1,0 +1,15 @@
+@import "~styles/essential";
+
+.npm-packages {
+	@include flex;
+	flex-direction: column;
+	.input-container {
+		@include flex;
+		flex-direction: column;
+		margin: 1em;
+	}
+
+	.search-result {
+		margin: 0 1em 1em 1em;
+	}
+}
