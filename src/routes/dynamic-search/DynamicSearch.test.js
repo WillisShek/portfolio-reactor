@@ -1,3 +1,4 @@
+import React from "react";
 // libraries
 import { render, screen } from "@testing-library/react";
 
