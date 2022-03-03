@@ -1,10 +1,20 @@
+import React from "react";
+// libraries
 import { render, screen } from "@testing-library/react";
+// models
+import { NpmPackages } from "models/npmPackages";
 // components
 import PackageList, { emptyMessage } from "./PackageList";
 // mocks
 import mockedSearchNpmPackagesResult from "tests/mocks/data/npmPackages/searchNpmPackages.result";
 
-const setup = ({ items = [], isEmpty = false }) => {
+const setup = ({
+	items = [],
+	isEmpty = false,
+}: {
+	items?: NpmPackages;
+	isEmpty?: boolean;
+}) => {
 	const loadMore = jest.fn(() => Promise.resolve([]));
 	render(
 		<PackageList
