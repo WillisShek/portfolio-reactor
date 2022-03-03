@@ -1,0 +1,20 @@
+@import "~styles/essential";
+
+.package-list-container {
+	.package-list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.loader {
+		display: flex;
+		justify-content: center;
+		margin-top: 1em;
+	}
+
+	.package-not-found-message {
+		@include flex(center);
+		font-weight: bold;
+	}
+}
