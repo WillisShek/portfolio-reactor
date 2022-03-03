@@ -1,0 +1,41 @@
+@import "~styles/essential";
+
+.site-header {
+	position: sticky;
+	top: 0;
+	@include flex;
+	padding: 0.5em 1em;
+	box-shadow: 0 0 15px rgba(#000, 0.15);
+	background-color: #fff;
+	z-index: 9999; // top-most
+	> .home,
+	> .author {
+		flex: 0 0 5rem;
+		@include flexCenter;
+	}
+
+	> .home {
+		@include flex(flex-start);
+
+		.icon {
+			cursor: pointer;
+		}
+	}
+
+	> .author {
+		@include flex(flex-end);
+		color: $grey40;
+		font-size: 0.6em;
+	}
+
+	> .title {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		> span {
+			font-size: 1.2em;
+			font-weight: bold;
+			text-align: center;
+		}
+	}
+}
