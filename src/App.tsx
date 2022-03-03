@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// libraries
+import { HashRouter, useRoutes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+// routes
+import { purifiedRoutes } from "routes";
+// components
+import SiteHeader from "components/SiteHeader/SiteHeader";
+// styles
+import "./App.scss";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const renderedRoutes = useRoutes(purifiedRoutes);
+
+	return (
+		<div id="app">
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
+			<SiteHeader />
+			<div className="body">{renderedRoutes}</div>
+		</div>
+	);
 }
 
-export default App;
+function AppWithProvider() {
+	return (
+		<HashRouter>
+			<App />
+		</HashRouter>
+	);
+}
+
+export default AppWithProvider;
