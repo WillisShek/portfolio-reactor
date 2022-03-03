@@ -13,7 +13,7 @@ describe("npmPackages:", () => {
 	it("searchNpmPackages is can return data correctly", async () => {
 		const payload = { text: "react" };
 
-		mockSearchNpmPackages();
+		mockSearchNpmPackages(payload.text);
 
 		const result = await searchNpmPackages(payload);
 

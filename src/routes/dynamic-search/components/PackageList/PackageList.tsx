@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 // libraries
-import { useDebouncedCallback } from "use-debounce";
 import InfiniteScroll from "react-infinite-scroller";
-import { toast } from "react-toastify";
 import BeatLoader from "react-spinners/BeatLoader";
-import axios from "axios";
 // models
 import { NpmPackages } from "models/npmPackages";
 // components
@@ -35,10 +32,12 @@ export default function PackageList({
 			// make sure there is input before loading anything
 			hasMore={hasMore}
 			loader={
-				<div key={0} className="loader">
+				<div key={0} className="loader" data-testid="loader">
 					<BeatLoader size={24} color="#06c" />
 				</div>
 			}
+			threshold={100}
+			initialLoad={true}
 		>
 			{isEmpty ? (
 				<div className="package-not-found-message">
