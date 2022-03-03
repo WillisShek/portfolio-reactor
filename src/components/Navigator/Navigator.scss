@@ -1,0 +1,62 @@
+@import "~styles/essential";
+
+.navigator {
+	flex-basis: 0;
+	position: relative;
+	@include flex;
+	flex-direction: column;
+	border: solid 1px currentColor;
+	padding: 1em;
+
+	$pseudoGap: 0.5em;
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		width: 80%;
+		height: 80%;
+		border: solid 1px currentColor;
+	}
+
+	&::before {
+		z-index: -1;
+		border-top: none;
+		border-right: none;
+		left: -$pseudoGap;
+		bottom: -$pseudoGap;
+	}
+
+	&::after {
+		z-index: -1;
+		border-left: none;
+		border-bottom: none;
+		top: -$pseudoGap;
+		right: -$pseudoGap;
+	}
+	.nav-link {
+		user-select: none;
+		color: $grey80;
+		font-weight: 600;
+		text-align: center;
+		padding: 0.4em 0.5em;
+		transition: all 0.25s ease-in-out;
+
+		&:not(:last-child) {
+			margin-bottom: 0.5em;
+		}
+
+		&:hover:not(.active) {
+			background-color: #000;
+			color: #fff;
+		}
+
+		&.active {
+			cursor: default;
+			color: $grey40;
+		}
+
+		> span {
+			font-size: 1.2em;
+		}
+	}
+}
