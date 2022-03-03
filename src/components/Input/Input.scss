@@ -1,0 +1,24 @@
+@import "~styles/essential";
+
+.input-container {
+	position: relative;
+	padding-bottom: 1.1em;
+	.input {
+		padding: 0.5em;
+		color: $grey60;
+		border: solid 1px currentColor;
+		border-radius: 0.25em;
+
+		&.error {
+			border-color: $red;
+		}
+	}
+	.error-message {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		color: $red;
+		font-size: 0.6em;
+		font-weight: bold;
+	}
+}
