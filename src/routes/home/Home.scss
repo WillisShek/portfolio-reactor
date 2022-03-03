@@ -1,0 +1,13 @@
+@import "~styles/essential";
+
+.site-home {
+	overflow: hidden;
+	flex: 1;
+	@include flexCenter;
+	flex-direction: column;
+
+	.navigator {
+		@include flex;
+		flex-direction: column;
+	}
+}
