@@ -1,0 +1,60 @@
+/* ========================================================================== */
+/* Display */
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* Flexbox */
+/* -------------------------------------------------------------------------- */
+@mixin flex($justify: null, $alignItems: null, $alignContent: null) {
+	display: flex;
+	@if $justify {
+		justify-content: $justify;
+	}
+	@if $alignItems {
+		align-items: $alignItems;
+	}
+	@if $alignContent {
+		align-content: $alignContent;
+	}
+}
+
+@mixin flexCenter {
+	@include flex(center, center, center);
+}
+
+/* ========================================================================== */
+/* Position */
+/* ========================================================================== */
+@mixin positioning($space: 0) {
+	@if length($space) == 0 {
+		$space: 0;
+	}
+	@if length($space) == 1 {
+		$space: join($space, $space, space);
+	}
+	@if length($space) < 4 {
+		$space: join($space, $space, space);
+	}
+	top: nth($space, 1);
+	bottom: nth($space, 3);
+	left: nth($space, 4);
+	right: nth($space, 2);
+}
+@mixin positionCenter {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+// -------------------- Absolute --------------------
+@mixin absoluteCenter {
+	position: absolute;
+	@include positionCenter;
+}
+@mixin absolutePosition($space: 0) {
+	position: absolute;
+	@include positioning($space);
+}
+// -------------------- Fixed --------------------
+@mixin fixedPosition($space: 0) {
+	position: fixed;
+	@include positioning($space);
+}
