@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Input from "./Input";
 
-function InputForTest({ error }) {
+function InputForTest({ error }: { error?: string }) {
 	const [value, setValue] = useState("");
 	return (
 		<Input

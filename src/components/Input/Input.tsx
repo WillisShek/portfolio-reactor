@@ -5,7 +5,7 @@ import "./Input.scss";
 
 // setup to build a custome onChange
 type PropsType = Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> & {
-	onChange: Function;
+	onChange: (value: string) => void;
 	className?: string;
 	error?: string;
 };
