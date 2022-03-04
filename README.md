@@ -33,4 +33,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
+____
 **I am not offering any license in a prominent place**
