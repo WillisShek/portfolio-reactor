@@ -12,7 +12,13 @@ export default function SinglePackage({
 	link,
 }: NpmPackage) {
 	return (
-		<a className="package-single" href={link} target="_blank" rel="noreferrer">
+		<a
+			className="package-single"
+			href={link}
+			target="_blank"
+			rel="noreferrer"
+			aria-label={name}
+		>
 			<div className="name">
 				<span>{name}</span>
 			</div>
