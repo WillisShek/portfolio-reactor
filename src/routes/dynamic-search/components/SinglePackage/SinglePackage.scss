@@ -17,40 +17,43 @@
 	margin: 1em;
 	padding: 0.5em 1em;
 	color: $grey80;
+	background-color: white;
+	transition-property: color, background-color;
+	transition-duration: 0.05s;
 
 	&,
 	&::before,
 	&::after {
+		outline: solid 2px $grey80;
 		border-radius: 0 0.5em 0 0.5em;
 	}
 
 	&::before,
 	&::after {
+		z-index: -1;
 		content: "";
 		position: absolute;
 		top: 0;
 		bottom: 0;
 		left: 0;
 		right: 0;
-		border: solid 2px rgba($blue, 0.6);
-		transition: all 0.25s ease;
+		transition: all 0.2s linear;
 	}
 
 	&:hover,
 	&:focus {
-		box-shadow: 0 0 15px rgba(#000, 0.15);
-		outline: none;
+		color: white;
+		background-color: $grey80;
+		box-shadow: 0 0 15px rgba(black, 0.15);
 
 		$translateDist: 3px;
-		&::before,
-		&::after {
-			border-color: rgba($red, 0.6);
-		}
 		&::before {
-			transform: translate(-$translateDist, -$translateDist);
+			transform: translate($translateDist, $translateDist);
+			opacity: 0.6;
 		}
 		&::after {
-			transform: translate($translateDist, $translateDist);
+			transform: translate($translateDist * 2, $translateDist * 2);
+			opacity: 0.4;
 		}
 	}
 
@@ -69,12 +72,20 @@
 			right: 0;
 			height: 1px;
 			background-color: rgba(#000, 0.15);
+			@supports (mix-blend-mode: difference) {
+				mix-blend-mode: difference;
+				background-color: rgba(#fff, 0.15);
+			}
 		}
 	}
 
 	> .author {
 		@extend %ellipsisText;
 		color: $grey60;
+		@supports (mix-blend-mode: difference) {
+			mix-blend-mode: difference;
+			color: $grey20;
+		}
 		> span {
 			font-size: 0.9em;
 		}
