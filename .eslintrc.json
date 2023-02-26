@@ -18,5 +18,10 @@
 		"sourceType": "module"
 	},
 	"plugins": ["react", "@typescript-eslint", "jest"],
-	"rules": {}
+	"rules": {
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{ "ignoreRestSiblings": true }
+		]
+	}
 }
