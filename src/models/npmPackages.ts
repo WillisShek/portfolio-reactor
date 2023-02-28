@@ -9,7 +9,7 @@ export type NpmPackage = {
 
 export type NpmPackages = NpmPackage[];
 
-export type NpmPackageFromAPI = NpmPackage & {
+export type NpmPackageFromAPI = {
 	package: {
 		name: string;
 		// some package has no author, e.g. react
