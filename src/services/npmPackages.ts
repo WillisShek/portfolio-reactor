@@ -14,7 +14,7 @@ export function searchNpmPackages(
 		size?: number;
 		from?: number;
 	},
-	cancelToken: CancelToken
+	cancelToken?: CancelToken
 ): Promise<NpmPackages> {
 	const url = endpoints.SEARCH_NPM_PACKAGES;
 

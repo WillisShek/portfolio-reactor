@@ -5,7 +5,7 @@ import mockedSearchNpmPackages from "tests/mocks/data/npmPackages/searchNpmPacka
 import mockedSearchNpmPackagesResult from "tests/mocks/data/npmPackages/searchNpmPackages.result";
 
 export const mockSearchNpmPackages = (
-	searchTerms,
+	searchTerms: string,
 	result = mockedSearchNpmPackages
 ) => {
 	const payload = { text: searchTerms };
